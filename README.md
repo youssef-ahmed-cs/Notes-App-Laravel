@@ -13,11 +13,11 @@ A simple and clean web application built with Laravel to manage personal notes. 
 
 ## 🛠️ Tech Stack
 
-- PHP 8+
-- Laravel 10+
-- MySQL or SQLite
+- PHP 8.2
+- Laravel 12
+- MySQL ORM model
 - Blade templating engine
-- Tailwind CSS (optional)
+- Tailwind CSS
 
 ## 📦 Installation
 
