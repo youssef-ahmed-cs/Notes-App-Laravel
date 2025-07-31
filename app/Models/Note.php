@@ -14,6 +14,7 @@ class Note extends Model
         'created_at',
         'user_id',
         'updated_at',
-        'title'
+        'title',
+        'favorite'
     ];
 }

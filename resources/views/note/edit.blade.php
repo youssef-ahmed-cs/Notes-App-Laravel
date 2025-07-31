@@ -5,6 +5,10 @@
             @csrf
             @method('PUT')
             <div class="mb-4">
+                <label for="title" class="block text-gray-700 font-semibold mb-2">Title</label>
+                <input id="title" name="title" type="text" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required value="{{ old('title', $note->title) }}">
+            </div>
+            <div class="mb-4">
                 <label for="note" class="block text-gray-700 font-semibold mb-2">Note</label>
                 <textarea id="note" name="note" rows="6" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>{{ old('note', $note->note) }}</textarea>
             </div>
@@ -13,7 +17,6 @@
                     Save Changes
                 </button>
                 <input type="hidden" name="user_id" value="1">
-
                 <a href="{{ route('note.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition">
                     Back
                 </a>

@@ -4,12 +4,16 @@
         <form action="{{ route('note.store') }}" method="POST" class="bg-white rounded-lg shadow p-6">
             @csrf
             <div class="mb-4">
-                <label for="title" class="block text-gray-700 font-semibold mb-2">Title</label>
+                <label for="title" class="block text-gray-700 font-semibold mb-2 ">Title</label>
                 <input id="title" name="title" type="text" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
             </div>
             <div class="mb-4">
                 <label for="note" class="block text-gray-700 font-semibold mb-2">Note</label>
                 <textarea id="note" name="note" rows="6" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            </div>
+            <div class="mb-4 flex items-center">
+                <input id="favorite" name="favorite" type="checkbox" value="1" class="mr-2">
+                <label for="favorite" class="text-gray-700 font-semibold">Mark as Favorite</label>
             </div>
             <input type="hidden" name="user_id" value="1">
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">

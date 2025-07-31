@@ -19,6 +19,7 @@ class NoteFactory extends Factory
         return [
             'note'=>fake()->realText(2000),
             'user_id'=> 1,
+            'title'=> fake()->sentence(3),
         ];
     }
 }

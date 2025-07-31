@@ -10,7 +10,7 @@ class NoteController extends Controller
 
     public function index()
     {
-        $notes = Note::query()->orderBy('created_at' , 'desc')->paginate();
+        $notes = Note::query()->orderBy('favorite' , 'desc')->paginate();
         return view('note.index' , ['notes' => $notes]);
     }
 
@@ -27,6 +27,7 @@ class NoteController extends Controller
             'note' => 'required|string|max:2000',
             'user_id' => 'required|integer|exists:users,id',
             'title' => 'required|string|max:255',
+            'favorite' => 'boolean|nullable',
         ]);
         $note = Note::create($data);
         return to_route('note.index', ['note' => $note]);
@@ -51,6 +52,7 @@ class NoteController extends Controller
             'note' => 'required|string|max:2000',
             'user_id' => 'required|integer|exists:users,id',
             'title' => 'required|string|max:255',
+            'favorite' => 'boolean|nullable',
         ]);
         $note = Note::findOrFail($id);
         $note->update($data);
