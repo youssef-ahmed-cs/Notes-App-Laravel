@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Note;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -30,7 +32,7 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-
+        Mail::to($data['email'])->send(new \App\Mail\WelcomeEmail($data['name']));
         return redirect()->route('login')->with('success', 'Registration successful, please login.');
 
     }

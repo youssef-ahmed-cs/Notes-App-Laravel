@@ -53,11 +53,10 @@
         </div>
 
         <div class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Your Notes Summary</h3>
-            <p class="text-gray-600">
-                You have <span class="font-bold">{{ $notesCount ?? 0 }}</span> notes.
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Your Notes Summary</h3>
+            <p class="text-gray-600 mb-4">
+                You have <span class="font-bold">{{ ($notesCount) }}</span> notes.
             </p>
         </div>
-
     </div>
 </x-layout>
