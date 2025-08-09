@@ -1,4 +1,4 @@
-# 📝 Laravel Notes App
+# 📝 Notes++
 
 A simple and clean web application built with Laravel to manage personal notes.  
 Users can **Create**, **Read**, **Update**, and **Delete** (CRUD) notes easily through a user-friendly interface.  
