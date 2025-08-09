@@ -17,13 +17,13 @@
 
             <div class="mt-8 space-y-1">
                 <p class="text-gray-700 dark:text-gray-300">Best regards,</p>
-                <p class="font-medium text-gray-900 dark:text-gray-100">The Team</p>
+                <p class="font-medium text-gray-900 dark:text-gray-100">Youssef Ahmed</p>
             </div>
 
             <div class="mt-8">
-                <a rel=rel="noopener noreferrer" href="https://youssef-ahmed-cs.github.io/My-Project-ITI-FrontEND-2025/"
+                <a rel="noopener noreferrer" href="https://youssef-ahmed-cs.github.io/My-Project-ITI-FrontEND-2025/"
                     class="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
-                    Go to dashboard
+                    Go to My Profile
                 </a>
             </div>
         </div>

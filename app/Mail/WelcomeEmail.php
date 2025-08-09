@@ -21,9 +21,6 @@ class WelcomeEmail extends Mailable
         $this->name = $name;
     }
 
-    /**
-     * Get the message envelope.
-     */
     public function envelope(): Envelope
     {
         return new Envelope(
