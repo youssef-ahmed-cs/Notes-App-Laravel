@@ -17,4 +17,8 @@ class Note extends Model
         'title',
         'favorite'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

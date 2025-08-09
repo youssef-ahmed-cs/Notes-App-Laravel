@@ -1,19 +1,25 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/youssef', [WelcomeController::class, 'index'])
+Route::get('/', [WelcomeController::class, 'index'])
     ->name('welcome');
 
 
-Route::fallback(function () {
-    return [
-        'message' => 'Page not found',
-        'status' => 404
-    ];
-});
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.process');
+Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard')
+    ->middleware('auth');
+Route::post('/logout', function () {
+    auth()->logout();
+    return redirect()->route('register');
+})->name('logout');
+
 
 // Route::get('/note', [NoteController::class, 'index'])
 //     ->name('note.index');
@@ -38,6 +44,7 @@ Route::fallback(function () {
 
 
 ##resorces routes
-Route::resource('note', NoteController::class);
+Route::resource('note', NoteController::class)
+->middleware('auth')->names('note');
 
 

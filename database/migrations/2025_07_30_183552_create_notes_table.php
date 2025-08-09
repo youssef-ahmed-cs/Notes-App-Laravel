@@ -14,7 +14,8 @@ return new class extends Migration
             $table->longText('note');
             $table->foreignId('user_id')
                 ->constrained('users')
-                ->onDelete('cascade');
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->boolean('favorite')->default(false);
             $table->string('title');
             $table->timestamps();
         });

@@ -1,16 +1,32 @@
 <x-layout>
     <div class="max-w-4xl mx-auto py-8">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-3xl font-bold text-slate-800">Your Notes <span class="text-amber-500">++</span></h1>
-            <a class="bg-amber-500 text-white px-4 py-2 rounded shadow hover:bg-amber-600 transition"
-               href="{{ route('note.create') }}">
+
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-3xl font-bold text-slate-800">
+                Your Notes <span class="text-amber-500">++</span>
+            </h1>
+            <a href="{{ route('note.create') }}"
+               class="bg-amber-500 text-white px-4 py-2 rounded shadow hover:bg-amber-600 transition">
                 + New Note
             </a>
         </div>
 
+        <div class="mb-4">
+            <a href="{{ route('dashboard') }}"
+               class="bg-amber-500 text-white px-4 py-2 rounded shadow hover:bg-amber-600 transition font-medium inline-block">
+                ← Back to Dashboard
+            </a>
+        </div>
+
+        <p class="text-slate-600 mb-6">
+            Welcome, <span class="font-semibold text-slate-800">{{ auth()->user()->name }}</span>!
+        </p>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             @foreach($notes as $note)
                 <div class="bg-white border border-slate-200 rounded-xl shadow-sm p-6 flex flex-col justify-between transition transform hover:-translate-y-1 hover:shadow-lg">
+
                     <div class="mb-2 text-xl font-semibold text-slate-800 flex items-center">
                         {{ $note->title }}
                         @if($note->favorite)
@@ -29,16 +45,20 @@
                     </div>
 
                     <div class="flex space-x-2 mt-auto">
-                        <a class="bg-sky-500 text-white px-3 py-1 rounded hover:bg-sky-600 transition"
-                           href="{{ route('note.show', $note->id) }}">View</a>
-                        <a class="bg-yellow-400 text-gray-900 px-3 py-1 rounded hover:bg-yellow-500 transition"
-                           href="{{ route('note.edit', $note->id) }}">Edit</a>
+                        <a href="{{ route('note.show', $note->id) }}"
+                           class="bg-sky-500 text-white px-3 py-1 rounded hover:bg-sky-600 transition">
+                            View
+                        </a>
+                        <a href="{{ route('note.edit', $note->id) }}"
+                           class="bg-yellow-400 text-gray-900 px-3 py-1 rounded hover:bg-yellow-500 transition">
+                            Edit
+                        </a>
                         <form action="{{ route('note.destroy', $note->id) }}" method="POST"
                               onsubmit="return confirm('Are you sure?')">
                             @csrf
                             @method('DELETE')
-                            <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
-                                    type="submit">
+                            <button type="submit"
+                                    class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">
                                 Delete
                             </button>
                         </form>
@@ -50,5 +70,6 @@
         <div class="mt-8">
             {{ $notes->links() }}
         </div>
+
     </div>
 </x-layout>
